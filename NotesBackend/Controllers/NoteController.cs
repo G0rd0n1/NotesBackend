@@ -21,7 +21,7 @@ namespace NotesBackend.Controllers
        
         [HttpGet]
         [Route("GetAllNotes")]
-        public async Task<IEnumerable<Notes>> GetMembers()
+        public async Task<IEnumerable<Notes>> GetNotes()
         {
             
             return await _notesDbContext.Notes.ToListAsync();
@@ -30,7 +30,7 @@ namespace NotesBackend.Controllers
         
         [HttpPost]
         [Route("AddNotes")]
-        public async Task<Notes> AddMember(Notes objNote)
+        public async Task<Notes> AddNotes(Notes objNote)
         {
             
             _notesDbContext.Notes.Add(objNote);
@@ -42,7 +42,7 @@ namespace NotesBackend.Controllers
         
         [HttpPatch]
         [Route("UpdateNotes/{id}")]
-        public async Task<Notes> UpdateMember(Notes objNote)
+        public async Task<Notes> UpdateNotes(Notes objNote)
         {
             
             _notesDbContext.Entry(objNote).State = EntityState.Modified;
